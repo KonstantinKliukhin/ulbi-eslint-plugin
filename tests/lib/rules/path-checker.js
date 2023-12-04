@@ -24,8 +24,13 @@ ruleTester.run("path-checker", rule, {
 
   invalid: [
     {
-      code: "mock",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
+      filename: '/src/entities/Article/some.js',
+      "parserOptions": {
+        "sourceType": "module",
+        ecmaVersion: 2015
+      },
+      code: "import { article } from 'entities/Article'",
+      errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
     },
   ],
 });
