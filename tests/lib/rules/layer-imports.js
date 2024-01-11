@@ -63,6 +63,17 @@ ruleTester.run("layer-imports", rule, {
           ignoreImportPatterns: ['**/StoreProvider']
         }
       ],
+    },
+    {
+      filename: 'C:/Users/tim/Desktop/javascript/Ulbi/src/shared/config/storybook/StoreDecorator/StoreDecorator.tsx',
+      code: "import { StoreProvider } from '@/app/providers/StoreProvider'",
+      errors: [],
+      options: [
+        {
+          alias: '@',
+          ignoreFilesPatterns: ['**/src/shared/config/storybook/**/*.(ts|tsx)']
+        }
+      ],
     }
   ],
 
