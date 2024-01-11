@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-ulbi-eslint-plugin",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "plugin for course",
   "keywords": [
     "eslint",
@@ -18,7 +18,8 @@
     "update:eslint-docs": "eslint-doc-generator"
   },
   "dependencies": {
-    "requireindex": "^1.2.0"
+    "requireindex": "^1.2.0",
+    "micromatch": "^4.0.5"
   },
   "devDependencies": {
     "eslint": "^8.19.0",

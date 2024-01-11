@@ -36,7 +36,17 @@ ruleTester.run("public-api-imports", rule, {
     },
     {
       code: "import { Some } from 'entities/Some/@x/article.js'",
-      errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
+      errors: [],
+    },
+    {
+      code: "import { SomeDecorator } from 'shared/config/storybook/someDecorator.tsx'",
+      filename: 'src/entities/Some/ui/SomeComponent.stories.tsx',
+      options: [
+        {
+          ignorePatterns: ['**/*.stories.(tsx|ts)']
+        },
+      ],
+      errors: [],
     },
   ],
   invalid: [
