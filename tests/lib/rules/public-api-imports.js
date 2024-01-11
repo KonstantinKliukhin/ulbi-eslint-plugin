@@ -34,6 +34,10 @@ ruleTester.run("public-api-imports", rule, {
       code: "import { Some } from '../../../../entities/Some/model/some.js'",
       errors: [],
     },
+    {
+      code: "import { Some } from 'entities/Some/@x/article.js'",
+      errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
+    },
   ],
   invalid: [
     {
