@@ -48,6 +48,16 @@ ruleTester.run("public-api-imports", rule, {
       ],
       errors: [],
     },
+    {
+      code: "import { renderComponent } from 'shared/config/tests'",
+      filename: 'src/entities/Some/ui/SomeComponent.test.tsx',
+      options: [
+        {
+          testFilesPatterns: ['**/*.test.(tsx|ts)']
+        },
+      ],
+      errors: [],
+    },
   ],
   invalid: [
     {
@@ -63,6 +73,11 @@ ruleTester.run("public-api-imports", rule, {
       options: [{
         alias: '@'
       }],
+      errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
+    },
+    {
+      code: "import { renderComponent } from 'shared/config/tests'",
+      filename: 'src/entities/Some/ui/SomeComponent.test.tsx',
       errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
     },
   ],
