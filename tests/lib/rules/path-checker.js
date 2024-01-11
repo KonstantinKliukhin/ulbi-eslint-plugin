@@ -49,5 +49,15 @@ ruleTester.run("path-checker", rule, {
       code: "import { article } from '@/entities/Article'",
       errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
     },
+    {
+      filename: '/src/shared/lib/some/some.js',
+      options: [
+        {
+          alias: "@"
+        }
+      ],
+      code: "import { anything } from '@/shared/constants/anything.js'",
+      errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
+    },
   ],
 });
