@@ -1,6 +1,6 @@
 /**
  * @fileoverview restricts imports not from public api
- * @author Kliukhin Konstantin
+ * @author Konstantin Kliukhin
  */
 "use strict";
 
