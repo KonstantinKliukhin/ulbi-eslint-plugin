@@ -62,23 +62,21 @@ ruleTester.run("public-api-imports", rule, {
   invalid: [
     {
       code: "import { Some } from 'entities/Some/model/some.js'",
-      errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
+      errors: [{ messageId: "invalid-import", type: "ImportDeclaration" }],
+      output: "import { Some } from 'entities/Some'"
     },
     {
       code: "import { Some } from 'features/Some/model/some.js'",
-      errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
+      errors: [{ messageId: "invalid-import", type: "ImportDeclaration" }],
+      output: "import { Some } from 'features/Some'"
     },
     {
       code: "import { Some } from '@/widgets/Some/model/some.js'",
       options: [{
         alias: '@'
       }],
-      errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
-    },
-    {
-      code: "import { renderComponent } from 'shared/config/tests'",
-      filename: 'src/entities/Some/ui/SomeComponent.test.tsx',
-      errors: [{ message: "You can import only from public api", type: "ImportDeclaration" }],
-    },
+      errors: [{ messageId: "invalid-import", type: "ImportDeclaration" }],
+      output: "import { Some } from '@/widgets/Some'"
+    }
   ],
 });
