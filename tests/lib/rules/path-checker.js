@@ -35,9 +35,10 @@ ruleTester.run("path-checker", rule, {
 
   invalid: [
     {
-      filename: '/src/entities/Article/some.js',
+      filename: 'my/pc/path/src/entities/Article/some.js',
       code: "import { article } from 'entities/Article'",
-      errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
+      errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration", }],
+      output: null
     },
     {
       filename: '/src/entities/Article/some.js',
@@ -48,6 +49,7 @@ ruleTester.run("path-checker", rule, {
       ],
       code: "import { article } from '@/entities/Article'",
       errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
+      output: null,
     },
     {
       filename: '/src/shared/lib/some/some.js',
@@ -58,6 +60,7 @@ ruleTester.run("path-checker", rule, {
       ],
       code: "import { anything } from '@/shared/constants/anything.js'",
       errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
+      output: "import { anything } from '../../constants/anything.js'"
     },
   ],
 });
