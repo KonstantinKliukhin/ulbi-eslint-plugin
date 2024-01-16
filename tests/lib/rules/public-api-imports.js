@@ -58,6 +58,15 @@ ruleTester.run("public-api-imports", rule, {
       ],
       errors: [],
     },
+    {
+      filename: 'some/pc/path/src/features/ManageArticleBlock/ui/ManageArticleBlock/ManageArticleBlock.tsx',
+      options: [
+        {
+          alias: "@"
+        }
+      ],
+      code: "import { anything } from '@/features/ManageArticleBlock/ui/blockForms/ArticleBlockFormPicker/ArticleBlockFormPicker'",
+    },
   ],
   invalid: [
     {

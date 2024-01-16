@@ -62,5 +62,16 @@ ruleTester.run("path-checker", rule, {
       errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
       output: "import { anything } from '../../constants/anything.js'"
     },
+    {
+      filename: 'some/pc/path/src/features/ManageArticleBlock/ui/ManageArticleBlock/ManageArticleBlock.tsx',
+      options: [
+        {
+          alias: "@"
+        }
+      ],
+      code: "import { anything } from '@/features/ManageArticleBlock/ui/blockForms/ArticleBlockFormPicker/ArticleBlockFormPicker'",
+      errors: [{ message: "All imports should be relative in one slice", type: "ImportDeclaration" }],
+      output: "import { anything } from '../blockForms/ArticleBlockFormPicker/ArticleBlockFormPicker'"
+    },
   ],
 });
